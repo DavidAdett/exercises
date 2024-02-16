@@ -1,0 +1,53 @@
+"""
+Crear un cajero automatico que me permita retirar y consignar dinero.
+    definir saldo como £1000
+    //bucle para realizar acciones en la cuenta bancaria
+    "mientras que sea verdadero"
+        definir opcion como pedir_input("Que desea hacer? 1. Consignar, 2. Retirar, 3. Salir)
+            Si la opcion es igual a "3" entonces
+                retornar "Hasta luego!"
+            salir_del_bucle
+            fin Si
+        //ejecutar la accion correspondiente
+        si opcion es igual a "1" entonces
+         definir valor como pedir_input("Digite el valor a consignar: ")
+            asignar a saldo la suma del saldo y valor
+         retornar "Accion realizada correctamente. Saldo: " Saldo"
+        sino si opcion es igual a "2" entonces
+        definir valor como pedir_input("Digite el valor a retirar: ")
+            si valor es mayor que saldo entonces
+             retornar "NO se realizo la accion. Saldo: " Saldo"
+         de lo contrario
+             asignar a saldo la resta del saldo y valor
+                retornar "Accion realizada correctamente. Saldo: "Saldo"
+            fin si
+        de lo contrario
+         retornar "opcion invalida"
+        fin si
+    fin mientras
+fin
+"""
+
+saldo = 1000
+while True:
+    opciones = int(
+        input(
+            "Que desea hacer? Opciones: 1.Consignar, 2.Retirar. 3.Salir (Elija el numero de cada opcion)"
+        )
+    )
+    if opciones == 3:
+        print("Hasta luego!")
+        break
+    elif opciones == 2:
+        valor = int(input("Digite el valor a retirar: "))
+        if valor > saldo:
+            print("No se realizo la transaccion, Saldo: " + str(saldo))
+        else:
+            saldo = saldo - valor
+            print("Accion realizada correctamente. Saldo:" + str(saldo))
+    elif opciones == 1:
+        valor = int(input("Digite el valor a consignar: "))
+        saldo = saldo + valor
+        print("Accion realizada correctamente. Saldo: " + str(saldo))
+    else:
+        print("Opcion invalida")
