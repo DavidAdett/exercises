@@ -1,1 +1,1 @@
-Estos son ejercicios basicos en python
+Basic programming excercises (Python)
