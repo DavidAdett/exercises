@@ -1,0 +1,79 @@
+"""
+Crear un cajero automatico que me permita retirar y consignar dinero.
+    definir saldo como £1000
+    //bucle para realizar acciones en la cuenta bancaria
+    "mientras que sea verdadero"
+        definir opcion como pedir_input("Que desea hacer? 1. Consignar, 2. Retirar, 3. Salir)
+            Si la opcion es igual a "3" entonces
+                retornar "Hasta luego!"
+            salir_del_bucle
+            fin Si
+        //ejecutar la accion correspondiente
+        si opcion es igual a "1" entonces
+         definir valor como pedir_input("Digite el valor a consignar: ")
+            asignar a saldo la suma del saldo y valor
+         retornar "Accion realizada correctamente. Saldo: " Saldo"
+        sino si opcion es igual a "2" entonces
+        definir valor como pedir_input("Digite el valor a retirar: ")
+            si valor es mayor que saldo entonces
+             retornar "NO se realizo la accion. Saldo: " Saldo"
+         de lo contrario
+             asignar a saldo la resta del saldo y valor
+                retornar "Accion realizada correctamente. Saldo: "Saldo"
+            fin si
+        de lo contrario
+         retornar "opcion invalida"
+        fin si
+    fin mientras
+fin
+"""
+
+saldo = 1000
+
+
+def deposit(valor):
+    global saldo
+    saldo += valor
+    return True
+
+
+def withdraw(valor):
+    global saldo
+    if valor > saldo:
+        return False
+    else:
+        saldo -= valor
+        return True
+
+
+def options(accion):
+
+    if accion == 2:
+        valor = int(input("Enter the amount to withdraw: "))
+        return withdraw(valor)
+    elif accion == 1:
+        valor = int(input("Enter the amount to deposit: "))
+        return deposit(valor)
+    else:
+        print("Opcion invalida")
+
+
+def main():
+
+    while True:
+        accion = int(
+            input(
+                "Que desea hacer? Opciones: 1.Consignar, 2.Retirar. 3.Salir (Elija el numero de cada opcion)"
+            )
+        )
+        if accion == 3:
+            print("Hasta luego!")
+            break
+        resultado = options(accion)
+        if resultado == False:
+            print("Esta accion no se pudo realizar")
+        else:
+            print("Accion realizada correctamente, Nuevo Saldo: " + str(saldo))
+
+
+main()
