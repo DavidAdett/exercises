@@ -1,0 +1,12 @@
+Dear [EMPLOYEE_NAME],
+After careful evaluation of your application for the position of [POSITION], 
+we are glad to inform you have been confirmed in [COMPANY_NAME].
+Your starting salary will be [SALARY], annually. 
+You will receive evaluation reviews after six and twelve months of service. 
+As defined by union contract, you willbe on probation for twelve months.
+Fringe benefit information is described in the enclosed Summary of Full-time Employee Programs handout. 
+The details of these programs are discussed during employment processing.
+Your start date is recorded as on [DATE]. 
+You will be contacted bythe Human Resources to schedule your new hire orientation.
+Do not hesitate to contact us with any questions about your employment here. 
+In the meantime, we look forward to you joining the staff.Sincerely, 
