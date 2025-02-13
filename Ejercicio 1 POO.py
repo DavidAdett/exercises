@@ -4,15 +4,21 @@ class Coche:
         self.modelo = modelo
         self.velocidad = 0
 
+    def __str__(self):
+        return f"Coche {self.marca} {self.modelo} - Velocidad: {self.velocidad} km/h."
+
     def acelerar(self, incremento):
         self.velocidad += incremento
         print(f"El coche {self.marca} {self.modelo} ha acelerado a {self.velocidad} km/h")
 
     def frenar(self, decremento):
-        self.velocidad -= decremento
-        if self.velocidad < 0:
-            self.velocidad = 0
-        print(f"El coche {self.marca} {self.modelo} ha frenado a {self.velocidad} km/h")
+        try: # Creamos manejo de excepciones para que no se pueda frenar a una velocidad negativa
+            if self.velocidad - decremento < 0:
+                raise ValueError("La velocidad no puede ser negativa")
+            self.velocidad -= decremento
+            print(f"El coche {self.marca} {self.modelo} ha frenado a {self.velocidad} km/h")
+        except ValueError as e:
+            print(e)
 
     def mostrarVelocidad(self):
         print(f"La velocidad del coche {self.marca} {self.modelo} es de {self.velocidad} km/h")
@@ -63,3 +69,21 @@ cocheElectrico1.mostrarBateria()
 cocheElectrico1.cargarBateria()
 cocheElectrico1.acelerar(50)
 cocheElectrico1.mostrarVelocidad()
+
+# Crear un diccionaro de coches
+cochesDict = {
+    "coche 1": Coche("Ford", "Fiesta"),
+    "coche 2": Coche("Renault", "Clio"),
+    "coche 3": CocheElectrico("Tesla", "Model S", 0),
+}
+
+# Usando un For, mostrar la marca y modelo de cada coche
+for nombre, coche in cochesDict.items():
+    print(f"{nombre}: Marca: {coche.marca}, Modelo: {coche.modelo}")
+
+# Probamos el metodo __str__ de la clase Coche
+mi_coche = Coche("Ford", "Fiesta")
+print(mi_coche)
+
+# Probamos el metodo manejo de excepciones de la clase Coche
+mi_coche.frenar(100) # Ten en cuent que la velocidad del coche es 0, por lo que no se puede frenar a -100 km/h
